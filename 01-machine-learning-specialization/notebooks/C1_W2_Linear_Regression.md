@@ -1,0 +1,2 @@
+[![View in nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/Rajib-Sarwar/machine-learning-journey/blob/main/01-machine-learning-specialization/notebooks/C1_W2_Linear_Regression.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rajib-Sarwar/machine-learning-journey/blob/main/01-machine-learning-specialization/notebooks/C1_W2_Linear_Regression.ipynb)
