@@ -8,7 +8,7 @@ By the end of this notebook, you'll be able to:
 * Use random minibatches to accelerate convergence and improve optimization
 
 Gradient descent goes "downhill" on a cost function $J$. Think of it as trying to do this: 
-<img src="images/cost.jpg" style="width:650px;height:300px;">
+<img src="images/cost.png" style="width:650px;height:300px;">
 <caption><center> <u> <b>Figure 1</b> </u>: <b>Minimizing the cost is like finding the lowest point in a hilly landscape</b><br> At each step of the training, you update your parameters following a certain direction to try to get to the lowest possible point. </center></caption>
 
 **Notations**: As usual, $\frac{\partial J}{\partial a } = $ `da` for any variable `a`.
