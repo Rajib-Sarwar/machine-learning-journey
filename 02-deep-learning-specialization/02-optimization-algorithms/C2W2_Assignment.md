@@ -882,7 +882,7 @@ train_X, train_Y = load_dataset()
 
 
     
-![png](output_34_0.png)
+![png](images/output_34_0.png)
     
 
 
@@ -1018,7 +1018,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_38_1.png)
+![png](images/output_38_1.png)
     
 
 
@@ -1027,7 +1027,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_38_3.png)
+![png](images/output_38_3.png)
     
 
 
@@ -1062,7 +1062,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_40_1.png)
+![png](images/output_40_1.png)
     
 
 
@@ -1071,7 +1071,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_40_3.png)
+![png](images/output_40_3.png)
     
 
 
@@ -1106,7 +1106,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_42_1.png)
+![png](images/output_42_1.png)
     
 
 
@@ -1115,7 +1115,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_42_3.png)
+![png](images/output_42_3.png)
     
 
 
@@ -1375,7 +1375,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_50_1.png)
+![png](images/output_50_1.png)
     
 
 
@@ -1384,7 +1384,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_50_3.png)
+![png](images/output_50_3.png)
     
 
 
@@ -1589,7 +1589,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_59_1.png)
+![png](images/output_59_1.png)
     
 
 
@@ -1598,7 +1598,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_59_3.png)
+![png](images/output_59_3.png)
     
 
 
@@ -1638,7 +1638,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_61_1.png)
+![png](images/output_61_1.png)
     
 
 
@@ -1647,7 +1647,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_61_3.png)
+![png](images/output_61_3.png)
     
 
 
@@ -1687,7 +1687,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_63_1.png)
+![png](images/output_63_1.png)
     
 
 
@@ -1696,7 +1696,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_63_3.png)
+![png](images/output_63_3.png)
     
 
 
