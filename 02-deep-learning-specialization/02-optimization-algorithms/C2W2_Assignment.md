@@ -11,8 +11,13 @@ Gradient descent goes "downhill" on a cost function $J$. Think of it as trying t
 <img src="images/cost.png" style="width:650px;height:300px;">
 <caption><center> <u> <b>Figure 1</b> </u>: <b>Minimizing the cost is like finding the lowest point in a hilly landscape</b><br> At each step of the training, you update your parameters following a certain direction to try to get to the lowest possible point. </center></caption>
 
-**Notations**: As usual, $\frac{\partial J}{\partial a } = $ `da` for any variable `a`.
+**Notations:** As usual, 
 
+$$
+\frac{\partial J}{\partial a} = da
+$$
+
+for any variable `a`.
 Let's get started!
 
 ## Important Note on Submission to the AutoGrader
@@ -93,13 +98,23 @@ plt.rcParams['image.cmap'] = 'gray'
 A simple optimization method in machine learning is gradient descent (GD). When you take gradient steps with respect to all $m$ examples on each step, it is also called Batch Gradient Descent. 
 
 <a name='ex-1'></a>
-### Exercise 1 - update_parameters_with_gd
+### Exercise 1 - `update_parameters_with_gd`
 
-Implement the gradient descent update rule. The  gradient descent rule is, for $l = 1, ..., L$: 
-$$ W^{[l]} = W^{[l]} - \alpha \text{ } dW^{[l]} \tag{1}$$
-$$ b^{[l]} = b^{[l]} - \alpha \text{ } db^{[l]} \tag{2}$$
+Implement the gradient descent update rule. The gradient descent rule is, for $l = 1, ..., L$:
 
-where L is the number of layers and $\alpha$ is the learning rate. All parameters should be stored in the `parameters` dictionary. Note that the iterator `l` starts at 1 in the `for` loop as the first parameters are $W^{[1]}$ and $b^{[1]}$. 
+$$
+W^{[l]} = W^{[l]} - \alpha \text{ } dW^{[l]} \tag{1}
+$$
+
+$$
+b^{[l]} = b^{[l]} - \alpha \text{ } db^{[l]} \tag{2}
+$$
+
+where $L$ is the number of layers and $\alpha$ is the learning rate.
+
+All parameters should be stored in the `parameters` dictionary.
+
+Note that the iterator `l` starts at 1 in the `for` loop as the first parameters are $W^{[1]}$ and $b^{[1]}$.
 
 
 ```python
@@ -163,7 +178,7 @@ update_parameters_with_gd_test(update_parameters_with_gd)
     [[ 1.13773698]
      [-1.09301954]
      [-0.16397615]]
-    [92mAll tests passed
+    [All tests passed
 
 
 A variant of this is Stochastic Gradient Descent (SGD), which is equivalent to mini-batch gradient descent, where each mini-batch has just 1 example. The update rule that you have just implemented does not change. What changes is that you would be computing gradients on just one training example at a time, rather than on the whole training set. The code examples below illustrate the difference between stochastic gradient descent and (batch) gradient descent. 
@@ -220,7 +235,7 @@ In Stochastic Gradient Descent, you use only 1 training example before updating 
 **Note** also that implementing SGD requires 3 for-loops in total:
 1. Over the number of iterations
 2. Over the $m$ training examples
-3. Over the layers (to update all parameters, from $(W^{[1]},b^{[1]})$ to $(W^{[L]},b^{[L]})$)
+3. Over the layers (to update all parameters, from $(W^{[1]}, b^{[1]})$ to $(W^{[L]}, b^{[L]})$
 
 In practice, you'll often get faster results if you don't use the entire training set, or just one training example, to perform each update. Mini-batch gradient descent uses an intermediate number of examples for each step. With mini-batch gradient descent, you loop over the mini-batches instead of looping over individual training examples.
 
@@ -242,24 +257,39 @@ There are two steps:
 <img src="images/kiank_partition.png" style="width:550px;height:300px;">
 
 <a name='ex-2'></a>
-### Exercise 2 - random_mini_batches
+
+
+### Exercise 2 - `random_mini_batches`
 
 Implement `random_mini_batches`. The shuffling part has already been coded for you! To help with the partitioning step, you've been provided the following code that selects the indexes for the $1^{st}$ and $2^{nd}$ mini-batches:
+
 ```python
 first_mini_batch_X = shuffled_X[:, 0 : mini_batch_size]
+
 second_mini_batch_X = shuffled_X[:, mini_batch_size : 2 * mini_batch_size]
+
 ...
 ```
 
-Note that the last mini-batch might end up smaller than `mini_batch_size=64`. Let $\lfloor s \rfloor$ represents $s$ rounded down to the nearest integer (this is `math.floor(s)` in Python). If the total number of examples is not a multiple of `mini_batch_size=64` then there will be $\left\lfloor \frac{m}{mini\_batch\_size}\right\rfloor$ mini-batches with a full 64 examples, and the number of examples in the final mini-batch will be $\left(m-mini_\_batch_\_size \times \left\lfloor \frac{m}{mini\_batch\_size}\right\rfloor\right)$. 
+Note that the last mini-batch might end up smaller than mini_batch_size=64.
 
-**Hint:**
+Let $\lfloor s \rfloor$ represents $s$ rounded down to the nearest integer (this is math.floor(s) in Python).
 
-$$mini\_batch\_X = shuffled\_X[:, i : j]$$ 
+If the total number of examples is not a multiple of mini_batch_size=64, then there will be:
 
-Think of a way in which you can use the for loop variable `k` help you increment `i` and `j` in multiples of mini_batch_size.
+$$\left\lfloor \frac{m}{mini_batch_size} \right\rfloor$$
 
-As an example, if you want to increment in multiples of 3, you could the following:
+mini-batches with a full 64 examples, and the number of examples in the final mini-batch will be:
+
+$$\left(m - mini_batch_size \times \left\lfloor \frac{m}{mini_batch_size} \right\rfloor\right)$$
+
+Hint:
+
+$$mini_batch_X = shuffled_X[:, i:j]$$
+
+Think of a way in which you can use the for loop variable k help you increment i and j in multiples of mini_batch_size.
+
+As an example, if you want to increment in multiples of 3, you could use the following:
 
 ```python
 n = 3
@@ -613,21 +643,26 @@ Adam is one of the most effective optimization algorithms for training neural ne
 2. It calculates an exponentially weighted average of the squares of the past gradients, and  stores it in variables $s$ (before bias correction) and $s^{corrected}$ (with bias correction). 
 3. It updates parameters in a direction based on combining information from "1" and "2".
 
-The update rule is, for $l = 1, ..., L$: 
-# $$\begin{cases}
-v_{dW^{[l]}} = \beta_1 v_{dW^{[l]}} + (1 - \beta_1) \frac{\partial \mathcal{J} }{ \partial W^{[l]} } \\
+The update rule is, for $l = 1, ..., L$:
+
+$$
+\begin{cases}
+v_{dW^{[l]}} = \beta_1 v_{dW^{[l]}} + (1 - \beta_1) \frac{\partial \mathcal{J}}{\partial W^{[l]}} \\
 v^{corrected}_{dW^{[l]}} = \frac{v_{dW^{[l]}}}{1 - (\beta_1)^t} \\
-s_{dW^{[l]}} = \beta_2 s_{dW^{[l]}} + (1 - \beta_2) (\frac{\partial \mathcal{J} }{\partial W^{[l]} })^2 \\
+s_{dW^{[l]}} = \beta_2 s_{dW^{[l]}} + (1 - \beta_2) \left(\frac{\partial \mathcal{J}}{\partial W^{[l]}}\right)^2 \\
 s^{corrected}_{dW^{[l]}} = \frac{s_{dW^{[l]}}}{1 - (\beta_2)^t} \\
 W^{[l]} = W^{[l]} - \alpha \frac{v^{corrected}_{dW^{[l]}}}{\sqrt{s^{corrected}_{dW^{[l]}}} + \varepsilon}
-\end{cases}$$
-where:
-- t counts the number of steps taken of Adam 
-- L is the number of layers
-- $\beta_1$ and $\beta_2$ are hyperparameters that control the two exponentially weighted averages. 
-- $\alpha$ is the learning rate
-- $\varepsilon$ is a very small number to avoid dividing by zero
+\end{cases}
+$$
 
+where:
+
+- $t$ counts the number of steps taken of Adam.
+- $L$ is the number of layers.
+- $\beta_1$ and $\beta_2$ are hyperparameters that control the two exponentially weighted averages.
+- $\alpha$ is the learning rate.
+- $\varepsilon$ is a very small number to avoid dividing by zero.
+  
 As usual, all parameters are stored in the `parameters` dictionary  
 
 <a name='ex-5'></a>   
