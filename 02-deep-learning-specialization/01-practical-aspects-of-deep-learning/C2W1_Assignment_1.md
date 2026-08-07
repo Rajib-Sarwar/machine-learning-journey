@@ -74,7 +74,7 @@ train_X, train_Y, test_X, test_Y = load_dataset()
 
 
     
-![png](output_6_0.png)
+![png](images/output_6_0.png)
     
 
 
@@ -244,7 +244,7 @@ predictions_test = predict(test_X, test_Y, parameters)
 
 
     
-![png](output_15_1.png)
+![png](images/output_15_1.png)
     
 
 
@@ -287,7 +287,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_18_0.png)
+![png](images/output_18_0.png)
     
 
 
@@ -427,7 +427,7 @@ predictions_test = predict(test_X, test_Y, parameters)
 
 
     
-![png](output_25_1.png)
+![png](images/output_25_1.png)
     
 
 
@@ -472,7 +472,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_28_0.png)
+![png](images/output_28_0.png)
     
 
 
@@ -612,7 +612,7 @@ predictions_test = predict(test_X, test_Y, parameters)
 
 
     
-![png](output_35_1.png)
+![png](images/output_35_1.png)
     
 
 
@@ -633,7 +633,7 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 
 
     
-![png](output_36_0.png)
+![png](images/output_36_0.png)
     
 
 
