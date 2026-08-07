@@ -235,7 +235,7 @@ The non-regularized model is obviously overfitting the training set. It is fitti
 
 The standard way to avoid overfitting is called **L2 regularization**. It consists of appropriately modifying your cost function, from:
 
-![png](images/output_16_0.png)
+![png](images/regularization_kiank.png)
 
 Let's modify your cost and observe the consequences.
 
