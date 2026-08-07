@@ -246,7 +246,7 @@ Implement `compute_cost_with_regularization()` which computes the cost given by 
 ```python
 np.sum(np.square(Wl))
 ```
-Note that you have to do this for $W^{[1]}$, $W^{[2]}$ and $W^{[3]}$, then sum the three terms and multiply by $ \frac{1}{m} \frac{\lambda}{2} $.
+Note that you have to do this for $W^{[1]}$, $W^{[2]}$ and $W^{[3]}$, then sum the three terms and multiply by $\frac{1}{m} \frac{\lambda}{2} $.
 
 
 ```python
@@ -462,18 +462,23 @@ To understand drop-out, consider this conversation with a friend:
 
 
 <center>
-<video width="620" height="440" src="images/dropout1_kiank.mp4" type="video/mp4" controls>
-</video>
-</center>
-<br>
-<caption><center><font color='purple'><b>Figure 2 </b>: <b>Drop-out on the second hidden layer.</b> <br> At each iteration, you shut down (= set to zero) each neuron of a layer with probability $1 - keep\_prob$ or keep it with probability $keep\_prob$ (50% here). The dropped neurons don't contribute to the training in both the forward and backward propagations of the iteration. </font></center></caption>
+    <video width="620" height="440" src="images/dropout1_kiank.mp4" type="video/mp4" controls>
+    </video>
+</center><br>
+<caption><center><font color='purple'><b>
+    
+Figure 2 </b>: <b>
+
+Drop-out on the second hidden layer.</b> <br> At each iteration, you shut down (= set to zero) each neuron of a layer with probability 1 - <code>keep_prob</code> or keep it with probability <code>keep_prob</code> (50% here). The dropped neurons don't contribute to the training in both the forward and backward propagations of the iteration. </font></center></caption>
 
 <center>
-<video width="620" height="440" src="images/dropout2_kiank.mp4" type="video/mp4" controls>
-</video>
+    <video width="620" height="440" src="images/dropout2_kiank.mp4" type="video/mp4" controls>
+    </video>
 </center>
 
-<caption><center><font color='purple'><b>Figure 3</b>:<b> Drop-out on the first and third hidden layers. </b><br> $1^{st}$ layer: we shut down on average 40% of the neurons.  $3^{rd}$ layer: we shut down on average 20% of the neurons. </font></center></caption>
+<caption><center><font color='purple'><b>
+    
+Figure 3</b>:<b> Drop-out on the first and third hidden layers. </b><br> $1^{st}$ layer: we shut down on average 40% of the neurons.  $3^{rd}$ layer: we shut down on average 20% of the neurons. </font></center></caption>
 
 
 When you shut some neurons down, you actually modify your model. The idea behind drop-out is that at each iteration, you train a different model that uses only a subset of your neurons. With dropout, your neurons thus become less sensitive to the activation of one other specific neuron, because that other neuron might be shut down at any time. 
