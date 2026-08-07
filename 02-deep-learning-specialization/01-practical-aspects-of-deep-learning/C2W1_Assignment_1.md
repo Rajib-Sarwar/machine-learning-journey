@@ -308,6 +308,7 @@ $$\sigma(z) = \frac{1}{ 1 + e^{-(z)}} = \frac{1}{2} = y_{pred}$$
 As for every example you are getting a 0.5 chance of it being true our cost function becomes helpless in adjusting the weights.
 
 Your loss function:
+
 $$ \mathcal{L}(a, y) =  - y  \ln(y_{pred}) - (1-y)  \ln(1-y_{pred})$$
 
 For `y=1`, `y_pred=0.5` it becomes:
